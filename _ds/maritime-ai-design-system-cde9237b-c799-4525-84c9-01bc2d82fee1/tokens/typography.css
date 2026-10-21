@@ -1,0 +1,37 @@
+:root {
+  /* Fluid display scale */
+  --text-hero: clamp(3.5rem, 7vw, 7.5rem);
+  --text-h1: clamp(2.75rem, 5vw, 5.25rem);
+  --text-h2: clamp(2rem, 3.5vw, 3.75rem);
+  --text-h3: clamp(1.4rem, 2vw, 2rem);
+
+  /* Fixed UI scale */
+  --text-body-lg: 1.125rem;
+  --text-body: 1rem;
+  --text-small: 0.875rem;
+  --text-data: 0.8125rem;
+  --text-label: 0.6875rem;
+
+  /* Line heights */
+  --leading-hero: 0.92;
+  --leading-display: 1.02;
+  --leading-heading: 1.12;
+  --leading-body: 1.6;
+  --leading-tight: 1.35;
+
+  /* Weights */
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+
+  /* Tracking */
+  --tracking-hero: -0.03em;
+  --tracking-heading: -0.02em;
+  --tracking-body: 0;
+  --tracking-label: 0.06em;
+  --tracking-mono: 0.01em;
+
+  /* Measure */
+  --measure-body: 68ch;
+}

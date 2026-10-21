@@ -1,0 +1,33 @@
+:root {
+  /* 4px base unit */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-24: 96px;
+  --space-32: 128px;
+
+  /* Section rhythm */
+  --section-y-desktop: 112px;
+  --section-y-mobile: 72px;
+
+  /* Grid */
+  --page-max: 1440px;
+  --gutter-desktop: 32px;
+  --margin-desktop: 64px;
+  --gutter-tablet: 24px;
+  --margin-tablet: 24px;
+  --gutter-mobile: 16px;
+  --margin-mobile: 20px;
+
+  /* Controls */
+  --control-h-sm: 32px;
+  --control-h: 40px;
+  --control-h-lg: 48px;
+  --row-h: 48px;
+  --touch-min: 44px;
+}

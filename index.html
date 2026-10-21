@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="_ds/maritime-ai-design-system-cde9237b-c799-4525-84c9-01bc2d82fee1/tokens/fonts.css">
+<link rel="stylesheet" href="_ds/maritime-ai-design-system-cde9237b-c799-4525-84c9-01bc2d82fee1/tokens/colors.css">
+<link rel="stylesheet" href="_ds/maritime-ai-design-system-cde9237b-c799-4525-84c9-01bc2d82fee1/tokens/typography.css">
+<link rel="stylesheet" href="_ds/maritime-ai-design-system-cde9237b-c799-4525-84c9-01bc2d82fee1/tokens/spacing.css">
+<link rel="stylesheet" href="_ds/maritime-ai-design-system-cde9237b-c799-4525-84c9-01bc2d82fee1/tokens/radii.css">
+<link rel="stylesheet" href="_ds/maritime-ai-design-system-cde9237b-c799-4525-84c9-01bc2d82fee1/tokens/elevation.css">
+<link rel="stylesheet" href="_ds/maritime-ai-design-system-cde9237b-c799-4525-84c9-01bc2d82fee1/tokens/motion.css">
+<link rel="stylesheet" href="_ds/maritime-ai-design-system-cde9237b-c799-4525-84c9-01bc2d82fee1/tokens/base.css">
+<link rel="stylesheet" href="_ds/maritime-ai-design-system-cde9237b-c799-4525-84c9-01bc2d82fee1/styles.css">
+<script src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.js"></script>
+<script src="_ds/maritime-ai-design-system-cde9237b-c799-4525-84c9-01bc2d82fee1/_ds_bundle.js"></script>
+<style>
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--surface-page)}
+a{color:var(--text-link);text-decoration:none;border-bottom:none}
+a:hover{color:var(--signal-cyan-dark);border-bottom:none}
+img{max-width:100%}
+@media (max-width:640px){
+  header[data-site-header]{position:static !important}
+  header[data-site-header] a[data-sec]{display:none !important}
+}
+@keyframes ds-rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+@keyframes daire-dialog-in{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+@media (prefers-reduced-motion:reduce){[role="dialog"]{animation:none !important}}
+@keyframes ds-enter{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+@keyframes ds-enter-line{from{opacity:0;transform:scaleX(.82)}to{opacity:1;transform:scaleX(1)}}
+[data-enter]{animation:ds-enter 320ms var(--ease-out) both}
+[data-enter="1"]{animation-delay:60ms}
+[data-enter="2"]{animation-delay:160ms}
+[data-enter="3"]{animation-delay:240ms}
+[data-enter-line]{transform-origin:left center;animation:ds-enter-line 360ms var(--ease-out) 200ms both}
+@keyframes ds-settle-l{from{opacity:0;transform:perspective(1600px) rotateY(9deg) translateZ(-64px)}to{opacity:1;transform:perspective(1600px) rotateY(5deg) translateZ(-28px)}}
+@keyframes ds-settle-c{from{opacity:0;transform:perspective(1600px) translateZ(-52px)}to{opacity:1;transform:perspective(1600px) translateZ(0)}}
+@keyframes ds-settle-r{from{opacity:0;transform:perspective(1600px) rotateY(-9deg) translateZ(-64px)}to{opacity:1;transform:perspective(1600px) rotateY(-5deg) translateZ(-28px)}}
+@supports (animation-timeline:view()){
+  [data-rise]{animation:ds-rise .5s var(--ease-out) both;animation-timeline:view();animation-range:entry 0% entry 60%}
+  [data-settle]{animation-duration:1ms;animation-fill-mode:both;animation-timing-function:var(--ease-out);animation-timeline:view();animation-range:entry 5% entry 65%}
+  [data-settle="l"]{animation-name:ds-settle-l}
+  [data-settle="c"]{animation-name:ds-settle-c}
+  [data-settle="r"]{animation-name:ds-settle-r}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  [data-rise],[data-enter],[data-enter-line],[data-settle]{animation:none !important}
+  [data-tilt]{transform:none !important;transition:none !important}
+}
+</style>
+</helmet>
+
+<div style="background:var(--surface-page);color:var(--text-body);font-family:var(--font-sans);overflow-x:hidden">
+
+<header data-site-header style="position:sticky;top:0;z-index:40;background:rgba(244,247,250,0.92);border-bottom:1px solid var(--border-hairline)">
+<div style="max-width:var(--page-max);margin:0 auto;padding:0 clamp(var(--margin-mobile),5vw,var(--margin-desktop));min-height:80px;display:flex;align-items:center;gap:clamp(16px,3vw,32px);flex-wrap:wrap">
+<a href="#top" style="display:flex;align-items:center;padding:8px 0">
+<img src="assets/logo.png" alt="dAIRE" width="200" height="100" style="height:clamp(48px,5vw,56px);width:auto;display:block">
+</a>
+<nav style="display:flex;align-items:center;gap:var(--space-6);flex:1;flex-wrap:wrap">
+<a href="#business" data-sec="1" style="padding:6px 0;font-size:var(--text-small);font-weight:500;color:var(--text-secondary)">Business case</a>
+<a href="#platform" data-sec="1" style="padding:6px 0;font-size:var(--text-small);font-weight:500;color:var(--text-secondary)">Platform</a>
+<a href="#product" data-sec="1" style="padding:6px 0;font-size:var(--text-small);font-weight:500;color:var(--text-secondary)">Product</a>
+<a href="#trust" data-sec="1" style="padding:6px 0;font-size:var(--text-small);font-weight:500;color:var(--text-secondary)">A*STAR Research</a>
+</nav>
+<x-import component-from-global-scope="MaritimeAIDesignSystem_cde923.Button" variant="primary" size="md" onClick="{{ openDemo }}" hint-size="200px,40px">Book technical demo</x-import>
+</div>
+</header>
+
+<section id="top" style="background:var(--surface-page)">
+<div style="max-width:var(--page-max);margin:0 auto;padding:clamp(48px,7vw,88px) clamp(var(--margin-mobile),5vw,var(--margin-desktop)) clamp(40px,5vw,64px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,400px),1fr));gap:var(--gutter-desktop);align-items:start">
+<div>
+<span data-enter="1" style="display:block"><x-import component-from-global-scope="MaritimeAIDesignSystem_cde923.SectionLabel" hint-size="100%,20px">Fleet intelligence for technical operations</x-import></span>
+<h1 data-enter="2" style="font-family:var(--font-display);font-size:clamp(42px,7.4vw,80px);font-weight:600;letter-spacing:var(--tracking-hero);line-height:var(--leading-display);margin:20px 0 0;color:var(--text-strong);max-width:17ch;text-wrap:pretty">Building the global standard for reliable and efficient maritime fleets</h1>
+<p data-enter="3" style="margin:20px 0 0;font-size:var(--text-body-lg);line-height:1.6;color:var(--text-secondary);max-width:52ch;text-wrap:pretty">AI-powered fleet intelligence that predicts failures early, reduces downtime and cuts fuel waste.</p>
+<div style="margin-top:28px;display:flex;gap:var(--space-3);flex-wrap:wrap">
+<x-import component-from-global-scope="MaritimeAIDesignSystem_cde923.Button" variant="primary" size="lg" icon="clipboard-check" onClick="{{ openDemo }}" hint-size="240px,48px">Book a technical demo</x-import>
+<x-import component-from-global-scope="MaritimeAIDesignSystem_cde923.Button" variant="secondary" size="lg" href="#platform" hint-size="190px,48px">See how it works</x-import>
+</div>
+<div style="display:flex;gap:var(--space-8);margin-top:32px;padding-top:20px;border-top:1px solid var(--border-hairline);flex-wrap:wrap">
+<div>
+<span class="ds-label">Deployment</span>
+<div style="font-size:var(--text-data);color:var(--text-secondary);margin-top:3px">Hardware-agnostic SaaS</div>
+</div>
+<div>
+<span class="ds-label">Vessel link</span>
+<div style="font-size:var(--text-data);color:var(--text-secondary);margin-top:3px">Works with existing sensors</div>
+</div>
+<div>
+<span class="ds-label">Coverage</span>
+<div style="font-size:var(--text-data);color:var(--text-secondary);margin-top:3px">Power · Propulsion · Navigation</div>
+</div>
+</div>
+</div>
+
+<figure style="margin:0;background:var(--surface-card);border:1px solid var(--border-hairline);border-radius:var(--radius-panel);overflow:hidden;max-width:697px">
+<div style="display:flex;align-items:center;justify-content:space-between;gap:var(--space-3);padding:10px 14px;border-bottom:1px solid var(--border-hairline);background:var(--surface-quiet)">
+<span class="ds-label">Console · developing fault</span>
+<x-import component-from-global-scope="MaritimeAIDesignSystem_cde923.StatusPill" state="action" size="sm" hint-size="90px,24px"></x-import>
+</div>
+<img src="assets/image1.png" alt="Vessel side elevation showing monitored power, propulsion and navigation systems" width="697" height="367" loading="eager" decoding="async" style="width:100%;height:auto;display:block">
+<div style="padding:14px 16px 0;border-top:1px solid var(--border-hairline);display:flex;align-items:flex-end;justify-content:space-between;gap:var(--space-4);flex-wrap:wrap">
+<span class="ds-label">Is ME-1 exhaust temperature drifting?</span>
+<x-import component-from-global-scope="MaritimeAIDesignSystem_cde923.Sparkline" data="{{ sparkData }}" width="{{ sparkW }}" height="{{ sparkH }}" threshold="{{ sparkThreshold }}" color="var(--signal-cyan-dark)" hint-size="200px,44px"></x-import>
+</div>
+<div data-enter-line style="padding:var(--space-4) var(--space-4) var(--space-4)">
+<x-import component-from-global-scope="MaritimeAIDesignSystem_cde923.Waterline" above="{{ wlAbove }}" below="{{ wlBelow }}" marker="{{ wlMarker }}" on-dark="{{ false }}" hint-size="100%,150px"></x-import>
+</div>
+<figcaption style="padding:10px 14px;border-top:1px solid var(--border-hairline);font-family:var(--font-mono);font-size:var(--text-label);color:var(--text-muted)">SYNTHETIC DEMO DATA</figcaption>
+</figure>
+</div>
+</section>
+
+<!-- Combined Impact & Business Case Section -->
+<section id="business" style="background:var(--surface-quiet);border-top:1px solid var(--border-hairline);border-bottom:1px solid var(--border-hairline)">
+<div style="max-width:var(--page-max);margin:0 auto;padding:clamp(var(--section-y-mobile),6vw,var(--section-y-desktop)) clamp(var(--margin-mobile),5vw,var(--margin-desktop))">
+<x-import component-from-global-scope="MaritimeAIDesignSystem_cde923.SectionLabel" hint-size="100%,20px">The Business Case &amp; Outcomes</x-import>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:var(--gutter-desktop);margin-top:20px;margin-bottom:40px;align-items:end">
+<h2 data-rise style="font-family:var(--font-display);font-size:var(--text-h2);font-weight:600;letter-spacing:-0.02em;line-height:1.06;margin:0;color:var(--text-strong);max-width:24ch;text-wrap:pretty">Fewer surprises, lower maintenance costs, more days on hire</h2>
+<p style="margin:0;font-size:var(--text-body-lg);line-height:1.6;color:var(--text-secondary);max-width:52ch;text-wrap:pretty">Unplanned machinery failures damage day-rates and charter credibility. dAIRE moves repairs into planned windows to protect asset value and team bandwidth.</p>
+</div>
+
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:var(--gutter-desktop);border-top:1px solid var(--border-hairline);padding-top:28px">
+<x-import component-from-global-scope="MaritimeAIDesignSystem_cde923.KpiStat" label="Predictive lead time" value="7 days" unit="advance warning" basis="TARGET · PILOT EVIDENCED" hint-size="100%,96px"></x-import>
+<x-import component-from-global-scope="MaritimeAIDesignSystem_cde923.KpiStat" label="Repair costs" value="35%" tone="action" unit="reduction" basis="TARGET RANGE" hint-size="100%,96px"></x-import>
+<x-import component-from-global-scope="MaritimeAIDesignSystem_cde923.KpiStat" label="Downtime" value="60%" tone="normal" unit="reduction" basis="TARGET PER FLEET" hint-size="100%,96px"></x-import>
+<x-import component-from-global-scope="MaritimeAIDesignSystem_cde923.KpiStat" label="Annual savings" value="~$180k" unit="per vessel" tone="action" basis="ESTIMATED TARGET" hint-size="100%,96px"></x-import>
+</div>
+</div>
+</section>
+
+<!-- Platform Section -->
+<section id="platform" style="background:var(--surface-page)">
+<div style="max-width:var(--page-max);margin:0 auto;padding:clamp(var(--section-y-mobile),6vw,var(--section-y-desktop)) clamp(var(--margin-mobile),5vw,var(--margin-desktop))">
+<x-import component-from-global-scope="MaritimeAIDesignSystem_cde923.SectionLabel" hint-size="100%,20px">How it works</x-import>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:var(--gutter-desktop);margin-top:20px;margin-bottom:40px;align-items:end">
+<h2 data-rise style="font-family:var(--font-display);font-size:var(--text-h2);font-weight:600;letter-spacing:-0.02em;line-height:1.06;margin:0;color:var(--text-strong);max-width:24ch;text-wrap:pretty">Four steps from vessel data to assigned work</h2>
+<p style="margin:0;font-size:var(--text-body-lg);line-height:1.6;color:var(--text-secondary);max-width:52ch;text-wrap:pretty">An interoperable, hardware-agnostic SaaS platform working seamlessly with your existing sensor streams.</p>
+</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:var(--gutter-desktop);border-top:1px solid var(--border-hairline)">
+<div data-rise style="border-top:2px solid var(--signal-cyan-dark);margin-top:-1px;padding-top:20px">
+<div style="margin-top:12px"><span class="ds-data" style="color:var(--text-muted)">01</span></div>
+<h3 style="font-family:var(--font-display);font-size:var(--text-h3);font-weight:600;letter-spacing:-0.02em;margin:6px 0 8px;color:var(--text-strong)">Smart ship</h3>
+<p style="margin:0;font-size:var(--text-small);line-height:1.55;color:var(--text-secondary)">Power, Propulsion and navigation telemetry streams off the vessel.</p>
+</div>
+<div data-rise style="border-top:2px solid var(--signal-cyan-dark);margin-top:-1px;padding-top:20px">
+<div style="margin-top:12px"><span class="ds-data" style="color:var(--text-muted)">02</span></div>
+<h3 style="font-family:var(--font-display);font-size:var(--text-h3);font-weight:600;letter-spacing:-0.02em;margin:6px 0 8px;color:var(--text-strong)">Secure transfer</h3>
+<p style="margin:0;font-size:var(--text-small);line-height:1.55;color:var(--text-secondary)">Preprocessed data moves shore-side, encrypted and satcom-aware.</p>
+</div>
+<div data-rise style="border-top:2px solid var(--signal-cyan-dark);margin-top:-1px;padding-top:20px">
+<div style="margin-top:12px"><span class="ds-data" style="color:var(--text-muted)">03</span></div>
+<h3 style="font-family:var(--font-display);font-size:var(--text-h3);font-weight:600;letter-spacing:-0.02em;margin:6px 0 8px;color:var(--text-strong)">dAIRE platform</h3>
+<p style="margin:0;font-size:var(--text-small);line-height:1.55;color:var(--text-secondary)">Risk scores, likely root causes and auditable recommendations.</p>
+</div>
+<div data-rise style="border-top:2px solid var(--action-amber);margin-top:-1px;padding-top:20px">
+<div style="margin-top:12px"><span class="ds-data" style="color:var(--state-action-text)">04</span></div>
+<h3 style="font-family:var(--font-display);font-size:var(--text-h3);font-weight:600;letter-spacing:-0.02em;margin:6px 0 8px;color:var(--text-strong)">Your team decides</h3>
+<p style="margin:0;font-size:var(--text-small);line-height:1.55;color:var(--text-secondary)">Superintendents assign actions and log resolved outcomes.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Product & Monitored Systems Combined Section -->
+<section id="product" style="background:var(--surface-quiet);border-top:1px solid var(--border-hairline);border-bottom:1px solid var(--border-hairline)">
+<div style="max-width:var(--page-max);margin:0 auto;padding:clamp(var(--section-y-mobile),6vw,var(--section-y-desktop)) clamp(var(--margin-mobile),5vw,var(--margin-desktop))">
+<x-import component-from-global-scope="MaritimeAIDesignSystem_cde923.SectionLabel" hint-size="100%,20px">Product &amp; Evidence</x-import>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:var(--gutter-desktop);margin-top:20px;margin-bottom:40px;align-items:end">
+<h2 data-rise style="font-family:var(--font-display);font-size:var(--text-h2);font-weight:600;letter-spacing:-0.02em;line-height:1.06;margin:0;color:var(--text-strong);max-width:24ch;text-wrap:pretty">Risk, evidence, and explanation in one clear view</h2>
+<p style="margin:0;font-size:var(--text-body-lg);line-height:1.6;color:var(--text-secondary);max-width:52ch;text-wrap:pretty">Observed telemetry, inferred cause, and system confidence stay completely transparent. Partial records read as unknown, never assumed healthy.</p>
+</div>
+
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:var(--gutter-desktop);perspective:1600px;perspective-origin:50% 40%">
+<figure data-tilt data-settle="l" style="margin:0;background:var(--surface-card);border:1px solid var(--border-hairline);border-radius:var(--radius-panel);overflow:hidden;display:flex;flex-direction:column">
+<div style="display:flex;align-items:center;justify-content:space-between;gap:var(--space-3);padding:10px 14px;border-bottom:1px solid var(--border-hairline);background:var(--surface-quiet)">
+<span class="ds-label">Fleet asset health</span>
+<x-import component-from-global-scope="MaritimeAIDesignSystem_cde923.StatusPill" state="action" size="sm" hint-size="90px,24px"></x-import>
+</div>
+<img src="assets/image3.png" alt="Fleet asset health ranking" loading="lazy" decoding="async" style="width:100%;aspect-ratio:16/10;object-fit:cover;object-position:center top;display:block;background:var(--surface-quiet)">
+<figcaption style="margin-top:auto;padding:14px;border-top:1px solid var(--border-hairline);font-size:var(--text-small);line-height:1.55;color:var(--text-secondary)">Every vessel ranked by operational priority.</figcaption>
+</figure>
+<figure data-tilt data-settle="c" style="margin:0;background:var(--surface-card);border:1px solid var(--border-hairline);border-radius:var(--radius-panel);overflow:hidden;display:flex;flex-direction:column">
+<div style="display:flex;align-items:center;justify-content:space-between;gap:var(--space-3);padding:10px 14px;border-bottom:1px solid var(--border-hairline);background:var(--surface-quiet)">
+<span class="ds-label">Live monitoring</span>
+<x-import component-from-global-scope="MaritimeAIDesignSystem_cde923.StatusPill" state="normal" size="sm" hint-size="90px,24px"></x-import>
+</div>
+<img src="assets/image5.png" alt="Live machinery monitoring" loading="lazy" decoding="async" style="width:100%;aspect-ratio:16/10;object-fit:cover;object-position:center top;display:block;background:var(--surface-quiet)">
+<figcaption style="margin-top:auto;padding:14px;border-top:1px solid var(--border-hairline);font-size:var(--text-small);line-height:1.55;color:var(--text-secondary)">Machinery trends compared against clean baselines.</figcaption>
+</figure>
+<figure data-tilt data-settle="r" style="margin:0;background:var(--surface-card);border:1px solid var(--border-hairline);border-radius:var(--radius-panel);overflow:hidden;display:flex;flex-direction:column">
+<div style="display:flex;align-items:center;justify-content:space-between;gap:var(--space-3);padding:10px 14px;border-bottom:1px solid var(--border-hairline);background:var(--surface-quiet)">
+<span class="ds-label">Prediction and cause</span>
+<x-import component-from-global-scope="MaritimeAIDesignSystem_cde923.StatusPill" state="action" size="sm" hint-size="90px,24px"></x-import>
+</div>
+<img src="assets/image4.png" alt="Prediction and likely cause" loading="lazy" decoding="async" style="width:100%;aspect-ratio:16/10;object-fit:cover;object-position:center top;display:block;background:var(--surface-quiet)">
+<figcaption style="margin-top:auto;padding:14px;border-top:1px solid var(--border-hairline);font-size:var(--text-small);line-height:1.55;color:var(--text-secondary)">Ranked root causes backed by concrete evidence.</figcaption>
+</figure>
+</div>
+</div>
+</section>
+
+<!-- Trust / A*STAR Section -->
+<section id="trust" style="background:var(--surface-page)">
+<div style="max-width:var(--page-max);margin:0 auto;padding:clamp(var(--section-y-mobile),6vw,var(--section-y-desktop)) clamp(var(--margin-mobile),5vw,var(--margin-desktop))">
+<x-import component-from-global-scope="MaritimeAIDesignSystem_cde923.SectionLabel" hint-size="100%,20px">A*STAR-incubated · Singapore</x-import>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:var(--gutter-desktop);margin-top:20px;margin-bottom:40px;align-items:end">
+<h2 data-rise style="font-family:var(--font-display);font-size:var(--text-h2);font-weight:600;letter-spacing:-0.02em;line-height:1.06;margin:0;color:var(--text-strong);max-width:24ch;text-wrap:pretty">Research-grade reliability science, proven in mission-critical industries</h2>
+<p style="margin:0;font-size:var(--text-body-lg);line-height:1.6;color:var(--text-secondary);max-width:52ch;text-wrap:pretty">Built on over a decade of reliability research validated in aviation and now being deployed across maritime fleets.</p>
+</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:var(--gutter-desktop);border-top:1px solid var(--border-hairline);padding-top:28px">
+<x-import component-from-global-scope="MaritimeAIDesignSystem_cde923.KpiStat" label="Research foundation" value=">10 yrs" unit="reliability science" hint-size="100%,96px"></x-import>
+<x-import component-from-global-scope="MaritimeAIDesignSystem_cde923.KpiStat" label="Peer-reviewed papers" value="150+" basis="NeurIPS · ICLR · AAAI" hint-size="100%,96px"></x-import>
+<x-import component-from-global-scope="MaritimeAIDesignSystem_cde923.KpiStat" label="Proven domain" value="Aviation" tone="normal" basis="MARITIME PILOTS IN PROGRESS" hint-size="100%,96px"></x-import>
+<div>
+<span class="ds-label">Recognition</span>
+<div style="margin-top:10px;display:flex;flex-direction:column;gap:8px;font-size:var(--text-small);line-height:1.5;color:var(--text-secondary)">
+<span><span style="font-family:var(--font-mono);color:var(--state-action-text)">2024</span> IES Prestigious Engineering Award</span>
+<span><span style="font-family:var(--font-mono);color:var(--state-action-text)">2025</span> MTI Firefly Innovation Award</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Footer Contact Section -->
+<section id="contact" style="background:var(--ink-950)">
+<div style="max-width:var(--page-max);margin:0 auto;padding:clamp(var(--section-y-mobile),6vw,var(--section-y-desktop)) clamp(var(--margin-mobile),5vw,var(--margin-desktop));display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:var(--gutter-desktop);align-items:center">
+<div>
+<h2 data-rise style="font-family:var(--font-display);font-size:clamp(36px,5.6vw,62px);font-weight:600;letter-spacing:var(--tracking-hero);line-height:var(--leading-display);margin:24px 0 0;color:var(--text-inverse);max-width:18ch;text-wrap:pretty">Ready to reduce unplanned downtime?</h2>
+<p style="margin:20px 0 0;font-size:var(--text-body-lg);line-height:1.6;color:var(--text-inverse-secondary);max-width:44ch;text-wrap:pretty">Bring us one vessel and a few months of sensor history. We will show you what dAIRE would have caught.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:var(--space-3);align-items:stretch">
+<x-import component-from-global-scope="MaritimeAIDesignSystem_cde923.Button" variant="inverse" size="lg" icon="clipboard-check" onClick="{{ openDemo }}" full-width="{{ true }}" hint-size="100%,48px">Book a technical demo</x-import>
+<x-import component-from-global-scope="MaritimeAIDesignSystem_cde923.Button" variant="inverseGhost" size="lg" onClick="{{ openDataReq }}" full-width="{{ true }}" hint-size="100%,48px">Request our data requirements</x-import>
+<p style="margin:8px 0 0;font-family:var(--font-mono);font-size:var(--text-label);line-height:1.75;color:var(--text-inverse-secondary)">Power generation · Propulsion · Navigation. AI-based, hardware-agnostic SaaS.</p>
+</div>
+</div>
+<div style="border-top:1px solid var(--border-dark)">
+<div style="max-width:var(--page-max);margin:0 auto;padding:var(--space-4) clamp(var(--margin-mobile),5vw,var(--margin-desktop));display:flex;align-items:center;justify-content:space-between;gap:var(--space-4);flex-wrap:wrap;font-family:var(--font-mono);font-size:var(--text-label);color:var(--text-inverse-secondary)">
+<span>dAIRE · Singapore</span>
+<span>Data Driven AI for Reliable Engineering</span>
+</div>
+</div>
+</section>
+
+<!-- Modal Component -->
+<sc-if value="{{ formOpen }}" hint-placeholder-val="{{ false }}">
+<div role="presentation" onClick="{{ onScrimClick }}" style="position:fixed;inset:0;z-index:90;background:rgba(7,25,34,0.52);display:flex;align-items:flex-start;justify-content:center;padding:clamp(16px,5vh,72px) 16px;overflow-y:auto">
+<div role="dialog" aria-modal="true" aria-label="Request a technical demo" onClick="{{ stopPropagation }}" style="width:100%;max-width:520px;background:var(--surface-card);border:1px solid var(--border-hairline);border-radius:var(--radius-panel);box-shadow:var(--shadow-overlay);animation:daire-dialog-in var(--duration-entry) var(--ease-out) both">
+<div style="display:flex;align-items:flex-start;justify-content:space-between;gap:var(--space-4);padding:var(--space-6) var(--space-6) var(--space-4);border-top:2px solid var(--signal-cyan-dark);border-bottom:1px solid var(--border-hairline)">
+<div>
+<span class="ds-label">Technical demo</span>
+<h3 style="font-family:var(--font-display);font-size:26px;font-weight:600;letter-spacing:var(--tracking-heading);line-height:1.15;margin:8px 0 0;color:var(--text-strong)">{{ formTitle }}</h3>
+<p style="margin:8px 0 0;font-size:var(--text-small);line-height:1.55;color:var(--text-secondary);max-width:46ch;text-wrap:pretty">{{ formIntro }}</p>
+</div>
+<x-import component-from-global-scope="MaritimeAIDesignSystem_cde923.IconButton" icon="x" label="Close" onClick="{{ closeForm }}" hint-size="40px,40px"></x-import>
+</div>
+
+<sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
+<div style="padding:var(--space-8) var(--space-6)">
+<x-import component-from-global-scope="MaritimeAIDesignSystem_cde923.Alert" severity="normal" what="Request received" why="{{ sentDetail }}" next="{{ sentNext }}" hint-size="100%,100px"></x-import>
+<div style="margin-top:var(--space-4)">
+<x-import component-from-global-scope="MaritimeAIDesignSystem_cde923.Button" variant="secondary" size="md" onClick="{{ closeForm }}" hint-size="120px,40px">Close</x-import>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{ showFields }}" hint-placeholder-val="{{ true }}">
+<div style="padding:var(--space-6);display:flex;flex-direction:column;gap:var(--space-4)">
+<sc-if value="{{ error }}" hint-placeholder-val="{{ false }}">
+<x-import component-from-global-scope="MaritimeAIDesignSystem_cde923.Alert" severity="action" what="{{ errorTitle }}" why="{{ error }}" next="{{ errorNext }}" hint-size="100%,100px"></x-import>
+</sc-if>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:var(--space-4)">
+<x-import component-from-global-scope="MaritimeAIDesignSystem_cde923.FormField" label="Name" html-for="cf-name" required="{{ true }}" hint-size="100%,68px">
+<x-import component-from-global-scope="MaritimeAIDesignSystem_cde923.TextInput" id="cf-name" value="{{ fName }}" onChange="{{ onName }}" placeholder="Full name" invalid="{{ errName }}" hint-size="100%,40px"></x-import>
+</x-import>
+<x-import component-from-global-scope="MaritimeAIDesignSystem_cde923.FormField" label="Company" html-for="cf-company" required="{{ true }}" hint-size="100%,68px">
+<x-import component-from-global-scope="MaritimeAIDesignSystem_cde923.TextInput" id="cf-company" value="{{ fCompany }}" onChange="{{ onCompany }}" placeholder="Fleet or organisation" invalid="{{ errCompany }}" hint-size="100%,40px"></x-import>
+</x-import>
+</div>
+<x-import component-from-global-scope="MaritimeAIDesignSystem_cde923.FormField" label="Work email" html-for="cf-email" required="{{ true }}" hint-size="100%,68px">
+<x-import component-from-global-scope="MaritimeAIDesignSystem_cde923.TextInput" id="cf-email" type="email" value="{{ fEmail }}" onChange="{{ onEmail }}" placeholder="name@company.com" invalid="{{ errEmail }}" hint-size="100%,40px"></x-import>
+</x-import>
+<x-import component-from-global-scope="MaritimeAIDesignSystem_cde923.FormField" label="Message" html-for="cf-message" hint="Vessel types, systems of interest, and how much sensor history you can share." hint-size="100%,140px">
+<textarea id="cf-message" rows="4" value="{{ fMessage }}" onChange="{{ onMessage }}" placeholder="Fleet size, vessel types, systems of interest, preferred time zone" style="width:100%;padding:10px 12px;font-family:var(--font-sans);font-size:var(--text-small);line-height:1.55;color:var(--text-body);background:var(--surface-card);border:1px solid var(--border-hairline);border-radius:var(--radius-control);outline:none;resize:vertical;min-height:96px;transition:var(--transition-ui)"></textarea>
+</x-import>
+<div style="padding:var(--space-4);background:var(--surface-quiet);border:1px solid var(--border-hairline);border-radius:var(--radius-control);display:flex;align-items:flex-end;gap:var(--space-4);flex-wrap:wrap">
+<x-import component-from-global-scope="MaritimeAIDesignSystem_cde923.FormField" label="Spam check" html-for="cf-captcha" hint="Confirms a person is sending this." style="{{ captchaFieldStyle }}" hint-size="100%,68px">
+<div style="display:flex;align-items:center;gap:var(--space-3)">
+<span style="font-family:var(--font-mono);font-size:var(--text-body);font-weight:600;color:var(--text-strong);white-space:nowrap">{{ captchaPrompt }}</span>
+<x-import component-from-global-scope="MaritimeAIDesignSystem_cde923.TextInput" id="cf-captcha" value="{{ fCaptcha }}" onChange="{{ onCaptcha }}" mono="{{ true }}" placeholder="?" invalid="{{ errCaptcha }}" style="{{ captchaInputStyle }}" hint-size="88px,40px"></x-import>
+</div>
+</x-import>
+</div>
+<div style="display:flex;align-items:center;gap:var(--space-3);flex-wrap:wrap;border-top:1px solid var(--border-hairline);padding-top:var(--space-4)">
+<x-import component-from-global-scope="MaritimeAIDesignSystem_cde923.Button" variant="primary" size="lg" icon="clipboard-check" onClick="{{ submitForm }}" disabled="{{ sending }}" hint-size="200px,48px">{{ submitLabel }}</x-import>
+<x-import component-from-global-scope="MaritimeAIDesignSystem_cde923.Button" variant="secondary" size="lg" onClick="{{ closeForm }}" hint-size="100px,48px">Cancel</x-import>
+<sc-if value="{{ sendFailed }}" hint-placeholder-val="{{ false }}">
+<x-import component-from-global-scope="MaritimeAIDesignSystem_cde923.Button" variant="ghost" size="lg" icon="clipboard-check" href="{{ mailtoHref }}" hint-size="180px,48px">Send by email instead</x-import>
+</sc-if>
+</div>
+<p style="margin:0;font-family:var(--font-mono);font-size:var(--text-label);line-height:1.7;color:var(--text-muted)">SENT TO {{ contactTo }} · USED ONLY TO ARRANGE YOUR DEMO</p>
+</div>
+</sc-if>
+</div>
+</div>
+</sc-if>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;contactEmail&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;hello@daire.tech&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Contact&quot;,&quot;label&quot;:&quot;Forward enquiries to&quot;},&quot;formEndpoint&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Contact&quot;,&quot;label&quot;:&quot;Custom form endpoint (optional)&quot;}}">
+class Component extends DCLogic {
+  state = {
+    formOpen: false, sending: false, sent: false, error: '',
+    topic: 'demo',
+    f: { name: '', company: '', email: '', message: '' },
+    captcha: '', a: 0, b: 0,
+    touched: false, sendFailed: false, mailtoHref: ''
+  };
+
+  componentDidMount() {
+    this._key = (e) => { if (e.key === 'Escape' && this.state.formOpen) this.closeForm(); };
+    document.addEventListener('keydown', this._key);
+  }
+  componentWillUnmount() { document.removeEventListener('keydown', this._key); }
+
+  open(topic) {
+    this.setState({
+      formOpen: true, sent: false, sending: false, error: '', topic,
+      captcha: '', touched: false, sendFailed: false, mailtoHref: '',
+      a: 2 + Math.floor(Math.random() * 8),
+      b: 2 + Math.floor(Math.random() * 8),
+      f: {
+        name: '', company: '', email: '',
+        message: topic === 'data'
+          ? 'Please send the dAIRE data requirements (sensor tags, sampling rate, history depth) for our fleet.'
+          : ''
+      }
+    });
+    if (typeof document !== 'undefined') document.body.style.overflow = 'hidden';
+  }
+  closeForm = () => {
+    this.setState({ formOpen: false });
+    if (typeof document !== 'undefined') document.body.style.overflow = '';
+  };
+  setF(k, v) { this.setState(s => ({ f: Object.assign({}, s.f, { [k]: v }), error: '' })); }
+
+  validEmail(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.trim()); }
+
+  errors() {
+    const { f, captcha, a, b } = this.state;
+    return {
+      name: !f.name.trim(),
+      company: !f.company.trim(),
+      email: !this.validEmail(f.email),
+      captcha: String(captcha).trim() !== String(a + b)
+    };
+  }
+
+  submitForm = async () => {
+    const e = this.errors();
+    this.setState({ touched: true, sendFailed: false });
+    if (e.name || e.company || e.email) { this.setState({ error: 'Add your name, company and a valid work email before sending.' }); return; }
+    if (e.captcha) { this.setState({ error: 'The spam-check answer is not correct. Add the two numbers shown.' }); return; }
+
+    const to = this.props.contactEmail || 'hello@daire.tech';
+    const endpoint = this.props.formEndpoint || ('https://formsubmit.co/ajax/' + to);
+    const { f, topic } = this.state;
+    const subject = topic === 'data'
+      ? 'dAIRE — data requirements request — ' + f.company
+      : 'dAIRE — technical demo request — ' + f.company;
+
+    this.setState({ sending: true, error: '' });
+    try {
+      const res = await fetch(endpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          _subject: subject, _template: 'table', _captcha: 'false',
+          name: f.name, company: f.company, email: f.email,
+          message: f.message, request: topic === 'data' ? 'Data requirements' : 'Technical demo',
+          submitted: new Date().toISOString()
+        })
+      });
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      this.setState({ sending: false, sent: true });
+    } catch (err) {
+      const body = encodeURIComponent(
+        f.name + ' · ' + f.company + ' · ' + f.email + '\n\n' + f.message
+      );
+      this.setState({
+        sending: false,
+        sendFailed: true,
+        mailtoHref: 'mailto:' + to + '?subject=' + encodeURIComponent(subject) + '&body=' + body,
+        error: 'The form could not reach the server. Your details are kept below — send them by email instead.'
+      });
+    }
+  };
+
+  renderVals() {
+    const st = this.state;
+    const e = this.errors();
+    const show = st.touched;
+    const to = this.props.contactEmail || 'hello@daire.tech';
+    return {
+      formOpen: st.formOpen,
+      showFields: st.formOpen && !st.sent,
+      sent: st.sent,
+      sending: st.sending,
+      error: st.error,
+      errorTitle: st.sendFailed ? 'Could not send' : 'Check your details',
+      errorNext: st.sendFailed ? 'Use the email link below, or write to ' + to + ' directly.' : '',
+      sendFailed: !!st.sendFailed,
+      mailtoHref: st.mailtoHref || ('mailto:' + to),
+      sentNext: 'No action needed. Have your vessel and sensor history to hand for the call.',
+      submitLabel: st.sending ? 'Sending…' : (st.topic === 'data' ? 'Send request' : 'Request demo'),
+      formTitle: st.topic === 'data' ? 'Request our data requirements' : 'Book a technical demo',
+      formIntro: st.topic === 'data'
+        ? 'Tell us who to send the sensor and history requirements to. We reply within two business days.'
+        : 'Bring us one vessel and a few months of sensor history. We reply within two business days.',
+      sentDetail: 'Your request is on its way to ' + to + '. Expect a reply within two business days.',
+      contactTo: to.toUpperCase(),
+      captchaPrompt: st.a + ' + ' + st.b + ' =',
+      captchaFieldStyle: { flex: 1, minWidth: 0 },
+      captchaInputStyle: { width: 88 },
+      fName: st.f.name, fCompany: st.f.company, fEmail: st.f.email, fMessage: st.f.message, fCaptcha: st.captcha,
+      errName: show && e.name, errCompany: show && e.company, errEmail: show && e.email, errCaptcha: show && e.captcha,
+      onName: (ev) => this.setF('name', ev.target.value),
+      onCompany: (ev) => this.setF('company', ev.target.value),
+      onEmail: (ev) => this.setF('email', ev.target.value),
+      onMessage: (ev) => this.setF('message', ev.target.value),
+      onCaptcha: (ev) => this.setState({ captcha: ev.target.value, error: '' }),
+      openDemo: () => this.open('demo'),
+      openDataReq: () => this.open('data'),
+      closeForm: this.closeForm,
+      submitForm: this.submitForm,
+      onScrimClick: this.closeForm,
+      stopPropagation: (ev) => ev.stopPropagation(),
+      s20: 20,
+      sparkW: 200,
+      sparkH: 44,
+      sparkThreshold: 412,
+      mapH: 300,
+      sparkData: [368, 371, 369, 374, 372, 378, 381, 379, 386, 390, 388, 396, 401, 399, 408, 414, 419],
+      wlAbove: [
+        { label: 'Vessel', value: 'MV Northern Ridge · IMO 9421887' },
+        { label: 'System', value: 'ME-1 cyl 4' },
+        { label: 'Last received', value: '12 Mar 2026 14:02 UTC' }
+      ],
+      wlBelow: [
+        { label: 'Evidence', value: 'Exhaust temp +8 °C vs 30-day baseline' },
+        { label: 'Likely cause', value: 'Injector nozzle fouling · 82% confidence' },
+        { label: 'Recommended action', value: 'Vessel check at next port call' }
+      ],
+      wlMarker: { at: 47, label: 'Intervention' },
+      vesselAbove: [
+        { label: 'System 01', value: 'Power generation' },
+        { label: 'System 02', value: 'Propulsion · thrusters' },
+        { label: 'System 03', value: 'Navigation' }
+      ],
+      vesselBelow: [
+        { label: 'Above the line', value: 'Context: vessel, route, operating state, data freshness' },
+        { label: 'Below the line', value: 'Intelligence: evidence, likely cause, confidence, recommended action' }
+      ],
+      vesselMarker: { at: 52, label: 'Human decides' },
+      fleetVessels: [
+        { id: 'nr', name: 'MV Northern Ridge', x: 34, y: 18, severity: 'action' },
+        { id: 'gp', name: 'Gulf group', x: 66, y: 34, severity: 'normal', count: 8 },
+        { id: 'wb', name: 'MV Western Bay', x: 28, y: 50, severity: 'normal' },
+        { id: 'eh', name: 'MV Eastern Harbour', x: 62, y: 66, severity: 'watch' },
+        { id: 'sc', name: 'MV Southern Cross', x: 32, y: 82, severity: 'normal' }
+      ],
+      mailto: 'mailto:' + (this.props.contactEmail || 'hello@daire.tech')
+    };
+  }
+}
+</script>
+</body>
+</html>

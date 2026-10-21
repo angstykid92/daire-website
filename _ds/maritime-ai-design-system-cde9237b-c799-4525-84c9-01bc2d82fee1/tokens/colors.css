@@ -1,0 +1,89 @@
+:root {
+  /* Base — ink (dark authority) */
+  --ink-950: #061621;
+  --ink-900: #0A2233;
+  --ink-800: #123449;
+  --ink-700: #1D4761;
+
+  /* Base — cool neutrals (light greyish-blue working surfaces) */
+  --haze-050: #F4F7FA;
+  --haze-100: #E8EFF5;
+  --haze-200: #D9E3EC;
+  --haze-300: #C3D2DF;
+  --haze-400: #A4B7C8;
+  --paper: #FFFFFF;
+
+  /* Base — cool text greys (tuned for blue-grey, not beige, backgrounds) */
+  --slate-900: #10202D;
+  --slate-700: #3A4E5F;
+  --slate-500: #4F6475;
+
+  /* Base — signal */
+  --signal-cyan: #17B6CE;
+  --signal-cyan-dark: #0A7F92;
+  --signal-cyan-deep: #05606F;
+  --action-amber: #F2A93B;
+  --action-amber-text: #8A5A0C;
+  --safe-teal: #1F9C82;
+  --safe-teal-text: #16705D;
+  --risk-coral: #DC5A50;
+  --risk-coral-text: #A93A32;
+  --unknown-violet: #6F6BA6;
+  --unknown-violet-text: #524E8E;
+
+  /* Derived state surfaces — cool-tinted so they sit on blue-grey, not on beige */
+  --signal-cyan-tint: #E1F1F6;
+  --action-amber-tint: #FBEEDB;
+  --safe-teal-tint: #E1F0EC;
+  --risk-coral-tint: #FAE8E5;
+  --unknown-violet-tint: #EAEAF4;
+
+  /* Semantic — text (all pass AA on --surface-page and --surface-card) */
+  --text-strong: var(--ink-950);
+  --text-body: var(--slate-900);
+  --text-secondary: var(--slate-700);
+  --text-muted: var(--slate-500);
+  --text-inverse: #FFFFFF;
+  --text-inverse-secondary: #A9C0CE;
+  --text-link: var(--signal-cyan-deep);
+  --text-data: var(--ink-900);
+
+  /* Semantic — surface */
+  --surface-page: var(--haze-050);
+  --surface-card: var(--paper);
+  --surface-quiet: var(--haze-100);
+  --surface-sunken: var(--haze-200);
+  --surface-dark: var(--ink-950);
+  --surface-dark-raised: var(--ink-800);
+  --surface-dark-panel: var(--ink-900);
+
+  /* Semantic — line */
+  --border-hairline: var(--haze-200);
+  --border-strong: var(--haze-400);
+  --border-dark: #1B3F55;
+  --border-focus: var(--signal-cyan-dark);
+
+  /* Semantic — severity (Normal, Watch, Action, Critical, Unknown) */
+  --state-normal: var(--safe-teal);
+  --state-normal-text: var(--safe-teal-text);
+  --state-normal-surface: var(--safe-teal-tint);
+  --state-watch: var(--signal-cyan-dark);
+  --state-watch-text: var(--signal-cyan-deep);
+  --state-watch-surface: var(--signal-cyan-tint);
+  --state-action: var(--action-amber);
+  --state-action-text: var(--action-amber-text);
+  --state-action-surface: var(--action-amber-tint);
+  --state-critical: var(--risk-coral);
+  --state-critical-text: var(--risk-coral-text);
+  --state-critical-surface: var(--risk-coral-tint);
+  --state-unknown: var(--unknown-violet);
+  --state-unknown-text: var(--unknown-violet-text);
+  --state-unknown-surface: var(--unknown-violet-tint);
+
+  /* Semantic — interactive */
+  --action-primary: var(--ink-900);
+  --action-primary-hover: var(--ink-950);
+  --action-primary-text: #FFFFFF;
+  --action-accent: var(--action-amber);
+  --data-live: var(--signal-cyan-dark);
+}

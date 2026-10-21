@@ -1,0 +1,10 @@
+*, *::before, *::after { box-sizing: border-box; }
+body { margin: 0; background: var(--surface-page); color: var(--text-body); font-family: var(--font-sans); font-size: var(--text-body); line-height: var(--leading-body); -webkit-font-smoothing: antialiased; text-wrap: pretty; }
+h1, h2, h3, h4 { font-family: var(--font-display); font-weight: var(--weight-semibold); letter-spacing: var(--tracking-heading); line-height: var(--leading-heading); color: var(--text-strong); margin: 0; }
+p { margin: 0; }
+a { color: var(--text-link); text-decoration: none; border-bottom: 1px solid rgba(5, 96, 111, 0.32); transition: color var(--duration-ui) var(--ease-out), border-color var(--duration-ui) var(--ease-out); }
+a:hover { color: var(--ink-900); border-bottom-color: var(--ink-900); }
+:where(button, a, input, select, textarea):focus-visible { outline: var(--focus-ring-width) solid var(--signal-cyan-dark); outline-offset: var(--focus-ring-offset); }
+.ds-label { font-family: var(--font-sans); font-size: var(--text-label); font-weight: var(--weight-semibold); letter-spacing: var(--tracking-label); text-transform: uppercase; color: var(--text-muted); }
+.ds-data { font-family: var(--font-mono); font-size: var(--text-data); font-variant-numeric: tabular-nums; letter-spacing: var(--tracking-mono); }
+.ds-measure { max-width: var(--measure-body); }

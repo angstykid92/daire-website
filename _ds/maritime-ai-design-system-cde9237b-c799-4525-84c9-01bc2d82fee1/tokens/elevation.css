@@ -1,0 +1,12 @@
+:root {
+  /* Shadows are rare and shallow — separate regions with tone and hairlines first. */
+  --shadow-none: none;
+  --shadow-raised: 0 1px 2px rgba(6, 22, 33, 0.06);
+  --shadow-overlay: 0 8px 24px rgba(6, 22, 33, 0.12);
+  --shadow-dark-overlay: 0 8px 24px rgba(0, 0, 0, 0.36);
+  --focus-ring: 0 0 0 var(--focus-ring-width) var(--signal-cyan);
+  --focus-ring-offset-shadow: 0 0 0 var(--focus-ring-offset) var(--surface-card), 0 0 0 4px var(--signal-cyan);
+  /* Legibility overlays on imagery — protection gradient, never a glass capsule */
+  --overlay-image: linear-gradient(180deg, rgba(6, 22, 33, 0.72) 0%, rgba(6, 22, 33, 0.28) 52%, rgba(6, 22, 33, 0.78) 100%); /* @kind other */
+  --overlay-dark-top: linear-gradient(180deg, rgba(6, 22, 33, 0.92), rgba(6, 22, 33, 0)); /* @kind other */
+}

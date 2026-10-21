@@ -1,0 +1,11 @@
+/* Webfonts. The brand specifies Barlow Condensed + IBM Plex Sans/Mono, all of which
+   are open-source Google Fonts; no vendor binaries were supplied, so they load from
+   the Google Fonts CDN. Swap these @import lines for self-hosted @font-face rules
+   (and drop the .woff2 files into assets/fonts/) for production. */
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap");
+
+:root {
+  --font-display: "Barlow Condensed", "Arial Narrow", Arial, sans-serif;
+  --font-sans: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "IBM Plex Mono", Consolas, "SF Mono", monospace;
+}
